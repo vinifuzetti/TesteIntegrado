@@ -35,6 +35,18 @@ public class UsuarioDaoTest {
 		assertNull(usuarioDoBanco);
 	}
 	
+	@Test
+	public void deletarUsuario(){		
+		Usuario vini = new Usuario("Vinicius", "vrfuzetti@gmail.com");
+		usuarioDao.salvar(vini);
+		usuarioDao.deletar(vini);
+		
+		session.flush();
+		
+		Usuario usuarioDoBanco = usuarioDao.porNomeEEmail("Vinicius", "vrfuzetti@gmail.com");
+		assertNull(usuarioDoBanco);
+	}
+	
 	@After
 	public void fimTest(){
 		session.close();

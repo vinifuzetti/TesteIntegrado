@@ -87,7 +87,7 @@ public class LeilaoDao {
 	public List<Leilao> listaLeiloesDoUsuario(Usuario usuario) {
 		return session.createQuery("select lance.leilao " +
 								   "from Lance lance " +
-								   "where lance.usuario = :usuario")
+								   "where lance.usuario = :usuario ")
 				.setParameter("usuario", usuario).list();
 	}
 	
